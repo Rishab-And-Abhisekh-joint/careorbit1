@@ -759,7 +759,7 @@ export default function DashboardPage() {
                 <h2 className="text-2xl font-bold text-white">Your Medications</h2>
                 <p className="text-slate-400 mt-1">
                   {medications.length} active medications from {
-                    [...new Set(medications.map(m => m.specialty))].length
+                    Array.from(new Set(medications.map(m => m.specialty))).length
                   } specialists
                 </p>
               </div>
