@@ -1,0 +1,28 @@
+# CareOrbit Backend - Render Deployment Configuration
+# https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: careorbit-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    region: oregon
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_API_KEY
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT
+        value: gpt-4o
+      - key: AZURE_AI_SEARCH_ENDPOINT
+        sync: false
+      - key: AZURE_AI_SEARCH_KEY
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+    autoDeploy: true
