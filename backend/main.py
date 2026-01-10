@@ -831,9 +831,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
+        "http://localhost:3001",
         "https://localhost:3000",
-        "https://*.vercel.app",
-        "https://careorbit.vercel.app"
+        "https://careorbit.vercel.app",
+        "https://careorbit1.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
